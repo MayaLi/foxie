@@ -17,7 +17,8 @@
             "tsConfig": "apps/moxii-api/tsconfig.app.json",
             "assets": [
               "apps/moxii-api/src/assets"
-            ]
+            ],
+            "generatePackageJson": true
           },
           "configurations": {
             "production": {
