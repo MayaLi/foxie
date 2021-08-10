@@ -1,7 +1,7 @@
-import {Advocate} from "../../../../../libs/data/src";
+import {Advocate} from "../../../../../dist/libs/shared/src";
 
 /**
- *
+ * Get advocate by ID
  * @param advocateId
  */
 export function getAdvocateById(advocateId: string): Advocate{

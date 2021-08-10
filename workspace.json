@@ -1,31 +1,6 @@
 {
   "version": 2,
   "projects": {
-    "data": {
-      "root": "libs/data",
-      "sourceRoot": "libs/data/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/data/**/*.ts"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/data"
-          ],
-          "options": {
-            "jestConfig": "libs/data/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "moxii-api": {
       "root": "apps/moxii-api",
       "sourceRoot": "apps/moxii-api/src",
@@ -33,16 +8,12 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/moxii-api",
             "main": "apps/moxii-api/src/main.ts",
             "tsConfig": "apps/moxii-api/tsconfig.app.json",
-            "assets": [
-              "apps/moxii-api/src/assets"
-            ]
+            "assets": ["apps/moxii-api/src/assets"]
           },
           "configurations": {
             "production": {
@@ -67,16 +38,12 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/moxii-api/**/*.ts"
-            ]
+            "lintFilePatterns": ["apps/moxii-api/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/moxii-api"
-          ],
+          "outputs": ["coverage/apps/moxii-api"],
           "options": {
             "jestConfig": "apps/moxii-api/jest.config.js",
             "passWithNoTests": true
@@ -91,9 +58,7 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/moxii-web",
             "index": "apps/moxii-web/src/index.html",
@@ -104,9 +69,7 @@
               "apps/moxii-web/src/favicon.ico",
               "apps/moxii-web/src/assets"
             ],
-            "styles": [
-              "apps/moxii-web/src/styles.scss"
-            ],
+            "styles": ["apps/moxii-web/src/styles.scss"],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -151,16 +114,12 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/moxii-web/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["apps/moxii-web/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/moxii-web"
-          ],
+          "outputs": ["coverage/apps/moxii-web"],
           "options": {
             "jestConfig": "apps/moxii-web/jest.config.js",
             "passWithNoTests": true
@@ -189,9 +148,38 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/moxii-web-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/moxii-web-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "shared": {
+      "root": "libs/shared",
+      "sourceRoot": "libs/shared/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/workspace:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/shared",
+            "main": "libs/shared/src/index.ts",
+            "tsConfig": "libs/shared/tsconfig.lib.json",
+            "assets": ["libs/shared/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared"],
+          "options": {
+            "jestConfig": "libs/shared/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }
