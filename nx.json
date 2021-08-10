@@ -34,13 +34,14 @@
   },
   "projects": {
     "data": {
-      "tags": []
+      "tags": ["scope:shared"]
     },
     "moxii-api": {
-      "tags": []
+      "tags": ["scope:api"],
+      "implicitDependencies": ["data"]
     },
     "moxii-web": {
-      "tags": []
+      "tags": ["scope:client"]
     },
     "moxii-web-e2e": {
       "tags": [],
