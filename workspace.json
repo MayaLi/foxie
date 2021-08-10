@@ -1,0 +1,59 @@
+{
+  "version": 2,
+  "projects": {
+    "moxii-api": {
+      "root": "apps/moxii-api",
+      "sourceRoot": "apps/moxii-api/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/moxii-api",
+            "main": "apps/moxii-api/src/main.ts",
+            "tsConfig": "apps/moxii-api/tsconfig.app.json",
+            "assets": ["apps/moxii-api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/moxii-api/src/environments/environment.ts",
+                  "with": "apps/moxii-api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "moxii-api:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/moxii-api/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/moxii-api"],
+          "options": {
+            "jestConfig": "apps/moxii-api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/express"
+  },
+  "defaultProject": "moxii-api"
+}
